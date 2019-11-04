@@ -8,6 +8,7 @@ $title-font: 'Great Vibes';
 $common-font-color: rgb(89, 94, 94);
 
 $pink: #eaa0a2;
+$pink-dark: darken(#eaa0a2, 20);
 $purple: #3a4664;
 $golden: darken(#FFD700, 10);
 $gradient-color-1: linear-gradient(45deg, $pink 20%, $purple 80%);
@@ -68,7 +69,7 @@ body {
 	display: inline-block;
 	position: relative;
 	text-decoration: none;
-	color: $pink;
+	color: $pink-dark;
 	transition: 1s color ease;
 
 	&:before, &:after{
@@ -82,7 +83,7 @@ body {
 	}
 
 	&:before {
-		background: $pink;
+		background: $pink-dark;
 		left: 0;
 	}
 	&:after {
@@ -103,8 +104,13 @@ body {
 	border: 60px solid white;
 	position: relative;
 	@media (max-width: 761px) {
+		border: 0;
 	  .main-title { font-size: 4em; }
 	  .secondary-title { font-size: 3em; }
+	  .centered-text {
+	  	height: 90%;
+	  	width: 90%;
+	  }
 	}
 }
 
