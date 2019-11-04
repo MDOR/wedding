@@ -1,0 +1,46 @@
+@keyframes heart-animation {
+  0%, 100% {
+    transform: scale(1.2) rotate(-45deg);
+  }
+
+  50% {
+    transform: scale(1.5) rotate(-45deg);
+  }
+}
+
+.heart {
+  display: inline-block;
+  height: 45px;
+  width: 45px;;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: red;
+  animation: heart-animation 1s ease infinite;
+  -webkit-animation: heart-animation 1s ease infinite;
+  &:after,
+  &:before {
+    content: ' ';
+    border-radius: 50%;
+    display: inline-block;
+    height: 45px;
+    width:45px;
+    position: absolute;
+    top: 0;
+    background-color: red;
+  }
+  &:before {
+    left: 0px;
+    top: -21px;
+  }
+  &:after {
+    left: 21px;
+  }
+}
+
+.heart-container {
+  position: relative;
+}
