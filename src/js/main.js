@@ -1,4 +1,3 @@
-
 import Masonry from 'masonry-layout';
 import 'waypoints/lib/noframework.waypoints.js'
 
@@ -16,7 +15,3 @@ const grids = Array.from(document.querySelectorAll('.img-grid')).map((grid) => (
  	  columnWidth: '.grid-sizer'
 	})
 ))
-
-grids.forEach(grid => {
-	console.log(grid, grid.imagesLoaded)
-})
