@@ -9,7 +9,7 @@ $common-font-color: rgb(89, 94, 94);
 
 $pink: #eaa0a2;
 $purple: #3a4664;
-$golden: #FFD700;
+$golden: darken(#FFD700, 10);
 $gradient-color-1: linear-gradient(45deg, $pink 20%, $purple 80%);
 $gradient-color-2: linear-gradient(45deg, $purple 20%, $pink 80%);
 
@@ -28,10 +28,10 @@ body {
 	}
 
 	@media(min-width: $max-width +1) {
-       > * {
-       	  max-width: $max-width;
-       	  margin: auto;
-       }
+   > * {
+ 	  max-width: $max-width;
+ 	  margin: auto;
+   }
 	}
 }
 
@@ -39,24 +39,24 @@ body {
 
 .colored-title {
 	background-image: $gradient-color-1;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
 }
 
 [class^="button-"] {
 	padding: 15px;
-    display: inline-block;
-    border-radius: 20px;
-    text-decoration: none;
-    &:hover, &:active, &:focus {
-    	transform: scale(1.1);
-    }
+  display: inline-block;
+  border-radius: 20px;
+  text-decoration: none;
+  &:hover, &:active, &:focus {
+  	transform: scale(1.1);
+  }
 }
 
 .button-pink {
-    color: white;
+   color: white;
 	background: $pink;
 	transition: 1s ease box-shadow, 1s ease transform;
 	&:hover, &:active, &:focus {
@@ -69,7 +69,6 @@ body {
 	position: relative;
 	text-decoration: none;
 	color: $pink;
-	position: absolute;
 	transition: 1s color ease;
 
 	&:before, &:after{
@@ -117,20 +116,24 @@ body {
 	bottom: 0;
 	margin: auto;
 	display: inline-block;
-	width: 70%;
+	width: 78%;
   height: 80%;
   border: 1px solid $golden;
+  border-radius: 20px;
 }
 
 .main-title {
 	font-family: 'Great Vibes', cursive;
-	font-size: 6em;
+	font-weight: bold;
+	font-size: 5em;
+	margin-bottom: .3em;
 	text-align: center;
 }
 
 .secondary-title {
 	font-family: 'Great Vibes', cursive;
 	font-size: 4em;
+   margin-bottom: .3em;
 	text-align: center;
 }
 
@@ -206,5 +209,31 @@ ul, ol {
 			margin-right: 5px;
 
 		}
+	}
+}
+
+::selection{
+  background: $pink;
+  color: white;
+}
+::-moz-selection{
+  background: $pink;
+  color: white;
+}
+::-webkit-selection{
+  background: $pink;
+  color: white;
+}
+
+/* IE Hacks */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.sub-section-title {
+		color: $pink;
+		background: transparent;
+	}
+
+	.colored-title {
+		color: $purple;
+		background: transparent;
 	}
 }
