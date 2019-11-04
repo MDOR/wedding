@@ -32,7 +32,7 @@ const paths = {
     dest: 'docs/'
   },
   img: {
-    src: ['src/img/*.{jpg,jpeg,png,svg}', 'src/img/**/*.{jpg,jpeg,png,svg}'],
+    src: ['src/img/*.{jpg,jpeg,png,svg,ico}', 'src/img/**/*.{jpg,jpeg,png,svg,ico}'],
     dest: 'docs/img'
   }
 }
@@ -86,9 +86,14 @@ function html() {
 
 function img(done) {
   return gulp.src(paths.img.src)
-		.pipe(imagemin([imageminGuetzli({quality: 85})]))
+		.pipe(imagemin([
+			imageminGuetzli({quality: 85}),
+			imagemin.optipng({optimizationLevel: 5}),
+			imagemin.gifsicle({interlaced: true}),
+	    imagemin.svgo({})
+		]))
     .pipe(gulp.dest(paths.img.dest))
-  done()  
+  done()
 }
 
 function reload(done) {
@@ -113,8 +118,5 @@ const watch = () => {
 	gulp.watch(paths.html.src, gulp.series(html, reload))
 };
 
-const dev = gulp.series(clean, scripts,styles, html, img, serve, watch);
-
-gulp.task('default', dev)
-
-module.exports = dev;
+gulp.task('default', gulp.series(clean, scripts,styles, html, img))
+gulp.task('watch', gulp.series(clean, scripts,styles, html, img, serve, watch))

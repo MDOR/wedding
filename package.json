@@ -15,7 +15,8 @@
   },
   "homepage": "https://github.com/MDOR/wedding#readme",
   "scripts": {
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "watch": "gulp watch"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
