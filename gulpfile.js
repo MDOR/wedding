@@ -4,12 +4,16 @@ const browserify = require('browserify');
 const gulp = require('gulp')
 const sass = require('gulp-sass')
 const babel = require('gulp-babel')
-const source = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
-const uglify = require('gulp-uglify');
-const sourcemaps = require('gulp-sourcemaps');
+const source = require('vinyl-source-stream')
+const buffer = require('vinyl-buffer')
+const uglify = require('gulp-uglify')
+const sourcemaps = require('gulp-sourcemaps')
 const concat = require('gulp-concat')
 const copy = require('gulp-copy')
+const purge = require('gulp-css-purge')
+const cleanCSS = require('gulp-clean-css')
+const imagemin = require('gulp-imagemin')
+const imageminGuetzli = require('imagemin-guetzli');
 const browserSync = require('browser-sync')
 
 const server = browserSync.create();
@@ -31,9 +35,9 @@ const paths = {
     src: ['src/img/*.{jpg,jpeg,png,svg}', 'src/img/**/*.{jpg,jpeg,png,svg}'],
     dest: 'docs/img'
   }
-};
+}
 
-const clean = () => del(['docs']);
+const clean = () => del(['docs'])
 
 function scripts() {
   const b = browserify({
@@ -50,13 +54,13 @@ function scripts() {
         .pipe(uglify())
         .on('error', (e) => console.log(require('util').inspect(e)))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./docs/js/'));
+    .pipe(gulp.dest('./docs/js/'))
 
   return gulp.src(paths.scripts.src, { sourcemaps: true })
     .pipe(babel())
     .pipe(uglify())
     .pipe(concat('main.min.js'))
-    .pipe(gulp.dest(paths.scripts.dest));
+    .pipe(gulp.dest(paths.scripts.dest))
 }
 
 function styles() {
@@ -66,22 +70,30 @@ function styles() {
     		 path.join(__dirname, '/node_modules/normalize-scss/sass/'),
     	]
     }).on('error', sass.logError))
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(purge({
+      trim : true,
+      shorten : true,
+      verbose : true
+    }))
+    .pipe(cleanCSS())
+    .pipe(gulp.dest(paths.styles.dest))
 }
 
 function html() {
   return gulp.src(paths.html.src)
-    .pipe(gulp.dest(paths.html.dest));
+    .pipe(gulp.dest(paths.html.dest))
 }
 
-function img() {
+function img(done) {
   return gulp.src(paths.img.src)
-    .pipe(gulp.dest(paths.img.dest));
+		.pipe(imagemin([imageminGuetzli({quality: 85})]))
+    .pipe(gulp.dest(paths.img.dest))
+  done()  
 }
 
 function reload(done) {
-  server.reload();
-  done();
+  server.reload()
+  done()
 }
 
 function serve(done) {
@@ -90,7 +102,7 @@ function serve(done) {
       baseDir: './docs'
     }
   });
-  done();
+  done()
 }
 
 const watch = () => {
