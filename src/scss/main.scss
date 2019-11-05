@@ -19,12 +19,12 @@ $gradient-color-2: linear-gradient(45deg, $purple 20%, $pink 80%);
 }
 
 body {
-	font-family: 'Halant', serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
 	> * {
 		padding: 15px 30px;
 		&:nth-child(odd) {
-          background: #f3f2f1;
+      background: #f3f2f1;
 		}
 	}
 
@@ -33,6 +33,10 @@ body {
  	  max-width: $max-width;
  	  margin: auto;
    }
+	}
+
+	@media (max-width: 761px) {
+    > * { padding: 15px;}
 	}
 }
 
@@ -47,21 +51,22 @@ body {
 }
 
 [class^="button-"] {
-	padding: 15px;
+	padding: 10px 15px;
   display: inline-block;
-  border-radius: 20px;
+  border-radius: 36px;
   text-decoration: none;
+  cursor: pointer;
   &:hover, &:active, &:focus {
   	transform: scale(1.1);
   }
 }
 
 .button-pink {
-   color: white;
+  color: white;
 	background: $pink;
-	transition: 1s ease box-shadow, 1s ease transform;
+	transition: .5s ease box-shadow, .5s ease transform;
 	&:hover, &:active, &:focus {
-		box-shadow: 0 0 14px 3px rgba(0,0,0, .5);
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
 	}
 }
 
@@ -103,10 +108,15 @@ body {
 .header-container {
 	border: 60px solid white;
 	position: relative;
+	min-height: 900px;
 	@media (max-width: 761px) {
 		border: 0;
-	  .main-title { font-size: 4em; }
-	  .secondary-title { font-size: 3em; }
+		min-height: 400px;
+	  .main-title { font-size: 3.5em; }
+	  .secondary-title {
+	  	font-size: 3em;
+	  	margin-top: 15px;
+	  }
 	  .centered-text {
 	  	height: 90%;
 	  	width: 90%;
@@ -158,6 +168,13 @@ body {
 	border-radius: 50%;
 }
 
+.us {
+	text-align: center;
+	@media (max-width: 761px) {
+		text-align: justify;
+	}
+}
+
 .content {
   margin: auto;
   max-width: 1000px;
@@ -172,6 +189,7 @@ body {
 	.text {
 		flex-basis: 40%;
 		padding: 15px;
+		text-align: justify;
 		.sub-section-title { margin-top: 0; }
 	}
 	.img-grid {
@@ -181,6 +199,7 @@ body {
 	@media (max-width: 600px) {
 		flex-wrap: wrap;
 		> * { flex-basis: 100% !important; }
+		.sub-section-title { margin-bottom: 10px; }
 		.text { order: 1; }
 		.img-grid { order: 2; }
 	}
@@ -196,6 +215,12 @@ body {
 	> * {
 		flex: 1;
 	}
+}
+
+hr {
+	width: 55%;
+	border-color: $pink;
+	border-width: 0.5px;
 }
 
 ul, ol {
