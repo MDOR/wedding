@@ -4,9 +4,12 @@
       "@babel/env",
       {
         "targets": {
-          "browsers": ["last 2 versions", "safari >= 7"]
+          "browsers": ["last 2 versions", "safari >= 7", "ie >= 11"],
         }
       }
-    ]
+    ],
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-object-rest-spread", { "loose": true, "useBuiltIns": true }]
   ]
 }

@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.7",
