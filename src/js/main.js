@@ -1,6 +1,4 @@
 import './polyfill/array-from';
-import Masonry from 'masonry-layout';
-import 'waypoints/lib/noframework.waypoints.js';
 
 const MAX_HEIGHT = 1080
 const home = document.querySelector('#home')
@@ -36,13 +34,6 @@ function generateGrids() {
 	))
 }
 
-let interalForLogImg;
-interalForLogImg = setInterval(() => {
-	if (imgs.find(img => !img.src)) return
-
-	clearInterval(interalForLogImg)
-  generateGrids()
-}, 1500)
 
 const getCurrentScroll = () => document.scrollTop  || document.documentElement.scrollTop  || document.body.scrollTop
 
@@ -87,10 +78,9 @@ Array.from(move).forEach((item) => {
 })
 
 const points = Array.from(document.querySelectorAll('.points'))
-const randomizer = () => (Math.random() * 15) * (Math.random() > .5 ? 1 : -1)
+const randomizer = () => ((Math.random() * 15) + 10) * (Math.random() > .5 ? 1 : -1)
 
 function backgroundChange(item) {
-  const x = randomizer()
   const y = randomizer()
   const { backgroundPositionY } = item.style;
 
@@ -100,4 +90,4 @@ function backgroundChange(item) {
 
 window.addEventListener('scroll', debouncer(() =>
 	points.forEach(c => backgroundChange(c)),
-10));
+30));
