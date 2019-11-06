@@ -32,7 +32,7 @@ const paths = {
     dest: 'docs/'
   },
   img: {
-    src: ['src/img/*.{jpg,jpeg,png,svg,ico}', 'src/img/**/*.{jpg,jpeg,png,svg,ico}'],
+    src: ['src/img/*.{jpg,jpeg,png,svg,ico,webp}', 'src/img/**/*.{jpg,jpeg,png,svg,ico,webp}'],
     dest: 'docs/img'
   }
 }
@@ -96,6 +96,12 @@ function img(done) {
   done()
 }
 
+function imgCopy(done) {
+  return gulp.src(paths.img.src)
+    .pipe(gulp.dest(paths.img.dest))
+  done()
+}
+
 function reload(done) {
   server.reload()
   done()
@@ -119,4 +125,4 @@ const watch = () => {
 };
 
 gulp.task('default', gulp.series(clean, scripts,styles, html, img))
-gulp.task('watch', gulp.series(clean, scripts,styles, html, img, serve, watch))
+gulp.task('watch', gulp.series(clean, scripts,styles, html, imgCopy, serve, watch))
