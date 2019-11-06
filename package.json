@@ -36,13 +36,11 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
+    "imagemin-guetzli": "^2.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
-    "imagemin-guetzli": "^2.0.0",
-    "masonry-layout": "^4.2.2",
-    "normalize.css": "^8.0.1",
-    "waypoints": "^4.0.1"
+    "normalize.css": "^8.0.1"
   }
 }
