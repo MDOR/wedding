@@ -49,7 +49,7 @@ function scrollToUtil (target = 0) {
     window.cancelAnimationFrame(scroll)
 	)
 
-	window.addEventListener('scroll', cancel)
+	window.addEventListener('resize', cancel)
 	window.requestAnimationFrame(scroll)
 }
 
