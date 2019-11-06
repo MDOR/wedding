@@ -19,11 +19,11 @@ $gradient-color-2: linear-gradient(45deg, $purple 20%, $pink-dark 80%);
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Halant', serif;
 	font-size: 18px;
 	> * {
 		padding: 15px 30px;
-		transition: 2s background ease;
+		transition: 1s background ease;
 		&:nth-child(odd) {
 			background-image: url('../img/css/dots.webp');
       background: #f3f2f1;
@@ -164,6 +164,7 @@ body {
   text-fill-color: transparent;
 	font-family: 'Great Vibes', cursive;
 	font-size: 2.5em;
+	margin-bottom: 0;
 	text-align: center;
 }
 
@@ -186,7 +187,7 @@ body {
 
 .story-content {
 	display: flex;
-	border: .5px solid rgba($golden, .35);
+	border: .5px solid $pink;
 	border-radius: 15px;
 	overflow: hidden;
 	.text {
@@ -245,6 +246,9 @@ ul, ol {
 		}
 	}
 }
+
+.jessi, .marco { min-width: 200px; }
+.presentation-layer { max-width: 460px; }
 
 ::selection{
   background: $pink;
