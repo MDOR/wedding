@@ -1,0 +1,50 @@
+$pink: #eaa0a2;
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+	width: 300px;
+	overflow: hidden;
+	margin-bottom: 40px;
+	align-items: center;
+	&-img {
+		height: 350px;
+		width: 100%;
+		background-size: cover;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+	}
+	&-body {
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+		border: 1px solid $pink;
+		padding: 15px;
+		height: 360px;
+	}
+	&[data-info="templo"] {
+		.card-img { background-image: url('../img/additional/san_antonio.jpg'); }
+	}
+	&[data-info="autobuses"] {
+		.card-img {
+			background-image: url('../img/additional/bus.jpg');
+			background-position-x: 99%;
+		}
+	}
+	&[data-info="avion"] {
+		.card-img {
+			background-image: url('../img/additional/avion.jpg');
+			background-position-x: 10%;
+		}
+	}
+	&[data-info="what-to-do"] {
+		.card-img {
+			background-image: url('../img/additional/san_marcos.jpg');
+			background-position-x: 10%;
+		}
+	}
+}
+

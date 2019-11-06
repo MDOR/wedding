@@ -24,17 +24,6 @@ const debouncedSetHome = debouncer(setHomeSize);
 (setHomeSize)();
 window.addEventListener('resize', debouncedSetHome);
 
-function generateGrids() {
-	return Array.from(document.querySelectorAll('.img-grid')).map((grid) => (
-		new Masonry(grid, {
-	 	  itemSelector: '.grid-item',
-	 	  percentPosition: true,
-	 	  columnWidth: '.grid-sizer'
-		})
-	))
-}
-
-
 const getCurrentScroll = () => document.scrollTop  || document.documentElement.scrollTop  || document.body.scrollTop
 
 function scrollToUtil (target = 0) {
@@ -91,3 +80,21 @@ function backgroundChange(item) {
 window.addEventListener('scroll', debouncer(() =>
 	points.forEach(c => backgroundChange(c)),
 30));
+
+/* Back to Top */
+const backTop = document.querySelector('.back-top');
+function displayBackTop() {
+	const windowHeight = window.innerHeight || document.document.documentElement.clientHeight || document.body.clientHeight
+	const shouldHide = getCurrentScroll() < windowHeight/2
+
+	backTop.style.opacity = shouldHide ? 0 : 1;
+
+	setTimeout(() => backTop.style.display = shouldHide ? 'none': 'block', 500);
+}
+
+window.addEventListener('scroll', debouncer(() => displayBackTop()), 30)
+displayBackTop()
+backTop.addEventListener('click', e => {
+	e.preventDefault()
+	scrollToUtil(0)
+})
