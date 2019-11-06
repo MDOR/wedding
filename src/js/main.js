@@ -11,7 +11,7 @@ const  debouncer = (fn, time = 100) => {
   let timeout
 
   return function debouncedFn(...args) {
-  	clearTimeout(timeout);
+  	clearTimeout(timeout)
   	timeout = setTimeout(() => (timeout = null, fn(...args)), time)
   }
 }
@@ -64,27 +64,40 @@ function scrollToUtil (target = 0) {
 		timeout = setTimeout(() => window.requestAnimationFrame(scroll), 10)
 	}
 
-	const cancel = () => console.log('cancel') ||(
+	const cancel = () => (
     clearTimeout(timeout),
     window.cancelAnimationFrame(scroll)
 	)
 
-	window.addEventListener('scroll', cancel);
-
+	window.addEventListener('scroll', cancel)
 	window.requestAnimationFrame(scroll)
 }
 
-const move = document.querySelectorAll('[data-move-to]');
+const move = document.querySelectorAll('[data-move-to]')
 
 Array.from(move).forEach((item) => {
 	function moveTo (e) {
     e.preventDefault()
     const to = e.currentTarget.dataset.moveTo
     const target = document.querySelector(to)
-    console.log(to, target)
-    console.log(target.scrollHeight)
     scrollToUtil(target.scrollHeight)
 	}
 
 	item.addEventListener('click', moveTo)
 })
+
+const points = Array.from(document.querySelectorAll('.points'))
+const randomizer = () => (Math.random() * 15) * (Math.random() > .5 ? 1 : -1)
+
+function backgroundChange(item) {
+  const x = randomizer()
+  const y = randomizer()
+  const { backgroundPositionY } = item.style;
+
+  const newY = parseFloat(backgroundPositionY.replace('px', '') || 0) + y
+  item.style.backgroundPositionY = `${newY || 0}px`
+}
+
+window.addEventListener('scroll', debouncer(() =>
+	points.forEach(c => backgroundChange(c)),
+10));

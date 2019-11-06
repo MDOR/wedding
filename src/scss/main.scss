@@ -12,7 +12,7 @@ $pink-dark: darken(#eaa0a2, 20);
 $purple: #3a4664;
 $golden: darken(#FFD700, 10);
 $gradient-color-1: linear-gradient(45deg, $pink 20%, $purple 80%);
-$gradient-color-2: linear-gradient(45deg, $purple 20%, $pink 80%);
+$gradient-color-2: linear-gradient(45deg, $purple 20%, $pink-dark 80%);
 
 *, *:before, *:after {
 	box-sizing: border-box;
@@ -23,9 +23,12 @@ body {
 	font-size: 18px;
 	> * {
 		padding: 15px 30px;
+		transition: 2s background ease;
 		&:nth-child(odd) {
+			background-image: url('../img/css/dots.webp');
       background: #f3f2f1;
-		}
+      position: relative;
+    }
 	}
 
 	@media(min-width: $max-width +1) {
