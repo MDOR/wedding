@@ -117,10 +117,10 @@ function serve(done) {
 }
 
 const watch = () => {
-	gulp.series(clean, scripts, styles, img, html);
+	gulp.series(clean, scripts, styles, imgCopy, html);
 	gulp.watch(paths.scripts.src, gulp.series(scripts, reload))
 	gulp.watch(paths.styles.src, gulp.series(styles, reload))
-	gulp.watch(paths.img.src, gulp.series(img, reload))
+	gulp.watch(paths.img.src, gulp.series(imgCopy, reload))
 	gulp.watch(paths.html.src, gulp.series(html, reload))
 };
 
