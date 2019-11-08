@@ -219,7 +219,14 @@ body {
 		flex-wrap: wrap;
 		> * { flex-basis: 100% !important; }
 		.sub-section-title { margin-bottom: 10px; }
-		.text { order: 1; }
+		.text {
+			order: 1;
+			border-bottom-width: 0;
+			border-top-left-radius: 15px;
+			border-bottom-left-radius: 0 !important;
+			border-top-right-radius: 15px;
+			border-bottom-right-radius: 0 !important;
+		}
 		.img-grid { order: 2; }
 	}
 }
