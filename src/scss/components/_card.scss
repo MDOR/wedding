@@ -2,7 +2,7 @@ $pink: #eaa0a2;
 
 .card-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
@@ -26,25 +26,37 @@ $pink: #eaa0a2;
 		height: 360px;
 	}
 	&[data-info="templo"] {
-		.card-img { background-image: url('../img/additional/san_antonio.jpg'); }
+		.card-img {
+			background-image: url('../img/additional/san_antonio.jpg');
+			-webkit-background-image: url('../img/additional/san_antonio.jpg');
+		}
 	}
 	&[data-info="autobuses"] {
 		.card-img {
 			background-image: url('../img/additional/bus.jpg');
+			-webkit-background-image: url('../img/additional/bus.jpg');
 			background-position-x: 99%;
 		}
 	}
 	&[data-info="avion"] {
 		.card-img {
 			background-image: url('../img/additional/avion.jpg');
+			-webkit-background-image: url('../img/additional/avion.jpg');
 			background-position-x: 10%;
 		}
 	}
 	&[data-info="what-to-do"] {
 		.card-img {
 			background-image: url('../img/additional/san_marcos.jpg');
+			-webkit-background-image: url('../img/additional/san_marcos.jpg');
 			background-position-x: 10%;
 		}
+	}
+
+	@media (max-width: 768px) {
+   &-body {
+   	text-align: justify;
+   }
 	}
 }
 

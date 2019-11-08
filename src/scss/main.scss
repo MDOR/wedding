@@ -156,7 +156,8 @@ body {
 .secondary-title {
 	font-family: 'Great Vibes', cursive;
 	font-size: 4em;
-   margin-bottom: .3em;
+	margin-top: .3em;
+  margin-bottom: .3em;
 	text-align: center;
 }
 
@@ -192,13 +193,22 @@ body {
 
 .story-content {
 	display: flex;
-	border: .5px solid $pink;
 	border-radius: 15px;
 	overflow: hidden;
 	.text {
 		flex-basis: 40%;
 		padding: 15px;
 		text-align: justify;
+		line-height: 19px;
+		border: .5px solid $pink;
+		&:first-child { 
+			border-top-left-radius: 15px;
+			border-bottom-left-radius: 15px;
+		}
+		&:last-child {
+			border-top-right-radius: 15px;
+			border-bottom-right-radius: 15px;
+		}
 		.sub-section-title { margin-top: 0; }
 	}
 	.img-grid {
@@ -221,6 +231,7 @@ body {
 
 .presentation-layer {
 	display: flex;
+	margin-bottom: 0;
 	> * {
 		flex: 1;
 	}
@@ -230,12 +241,17 @@ hr {
 	width: 55%;
 	border-color: $pink;
 	border-width: 0.5px;
+	margin: 30px auto;
+}
+
+p {
+	margin-top: 0;
 }
 
 ul, ol {
 	list-style: none;
 	margin-top: 0;
-	margin-bottom: 15px;
+	margin-bottom: 0;
 	li {
 		position: relative;
 	  margin-top: 5px;
@@ -252,7 +268,7 @@ ul, ol {
 	}
 }
 
-.jessi, .marco { min-width: 200px; }
+.jessi, .marco { min-width: 150px; }
 .presentation-layer { max-width: 460px; }
 
 .back-top {
