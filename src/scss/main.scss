@@ -27,7 +27,7 @@ body {
 		transition: 1s background ease;
 		&:nth-child(odd) {
 			background-image: url('../img/css/dots.png');
-			background-image: url('../img/css/dots.webp');
+			-webkit-background-image: url('../img/css/dots.png');
       background: #f3f2f1;
       position: relative;
     }
