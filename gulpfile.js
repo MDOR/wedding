@@ -32,7 +32,11 @@ const paths = {
     dest: 'docs/'
   },
   img: {
-    src: ['src/img/*.{jpg,jpeg,png,svg,ico,webp}', 'src/img/**/*.{jpg,jpeg,png,svg,ico,webp}'],
+    src: ['src/img/*.{png,svg,ico,webp}', 'src/img/**/*.{png,svg,ico,webp}'],
+    dest: 'docs/img'
+  },
+  imgJPG: {
+    src: ['src/img/*.{jpg,jpeg}', 'src/img/**/*.{jpg,jpeg}'],
     dest: 'docs/img'
   }
 }
@@ -85,14 +89,21 @@ function html() {
 }
 
 function img(done) {
-  return gulp.src(paths.img.src)
+  gulp.src(paths.img.src)
 		.pipe(imagemin([
-			imageminGuetzli({quality: 85}),
-			imagemin.optipng({optimizationLevel: 5}),
+			imagemin.optipng({interlaced: true
+			}),
 			imagemin.gifsicle({interlaced: true}),
 	    imagemin.svgo({})
 		]))
     .pipe(gulp.dest(paths.img.dest))
+
+  gulp.src(paths.imgJPG.src)
+		.pipe(imagemin([
+			imageminGuetzli({quality: 85}),
+		]))
+    .pipe(gulp.dest(paths.imgJPG.dest))
+
   done()
 }
 
