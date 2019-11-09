@@ -26,6 +26,7 @@ body {
 		padding: 15px 30px;
 		transition: 1s background ease;
 		&:nth-child(odd) {
+			background-image: url('../img/css/dots.png');
 			background-image: url('../img/css/dots.webp');
       background: #f3f2f1;
       position: relative;
@@ -201,13 +202,15 @@ body {
 		text-align: justify;
 		line-height: 19px;
 		border: .5px solid $pink;
-		&:first-child { 
+		&:first-child {
 			border-top-left-radius: 15px;
 			border-bottom-left-radius: 15px;
+			border-right: 0;
 		}
 		&:last-child {
 			border-top-right-radius: 15px;
 			border-bottom-right-radius: 15px;
+			border-left: 0;
 		}
 		.sub-section-title { margin-top: 0; }
 	}

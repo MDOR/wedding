@@ -24,6 +24,8 @@ $pink: #eaa0a2;
 		border: 1px solid $pink;
 		padding: 15px;
 		height: 360px;
+		text-align: justify;
+		background: rgba(255,255,255,.6);
 	}
 	&[data-info="templo"] {
 		.card-img {
@@ -51,12 +53,6 @@ $pink: #eaa0a2;
 			-webkit-background-image: url('../img/additional/san_marcos.jpg');
 			background-position-x: 10%;
 		}
-	}
-
-	@media (max-width: 768px) {
-   &-body {
-   	text-align: justify;
-   }
 	}
 }
 
