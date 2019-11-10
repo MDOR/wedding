@@ -3,6 +3,7 @@
 @import './components/heart';
 @import './components/masonry';
 @import './components/card';
+@import './components/gallery';
 
 $max-width: 1920px;
 
@@ -310,6 +311,12 @@ ul, ol {
 ::-webkit-selection{
   background: $pink;
   color: white;
+}
+
+.clearfix {
+	content: '';
+	clear: both;
+	display: table;
 }
 
 /* IE Hacks */

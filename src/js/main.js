@@ -70,16 +70,19 @@ const points = Array.from(document.querySelectorAll('.points'))
 const randomizer = () => ((Math.random() * 15) + 10) * (Math.random() > .5 ? 1 : -1)
 
 function backgroundChange(item) {
+  const x = randomizer()
   const y = randomizer()
-  const { backgroundPositionY } = item.style;
+  const { backgroundPositionY, backgroundPositionX } = item.style;
 
   const newY = parseFloat(backgroundPositionY.replace('px', '') || 0) + y
+  const newX = parseFloat(backgroundPositionY.replace('px', '') || 0) + x
   item.style.backgroundPositionY = `${newY || 0}px`
+  item.style.backgroundPositionX = `${newX || 0}px`
 }
 
 window.addEventListener('scroll', debouncer(() =>
 	points.forEach(c => backgroundChange(c)),
-30));
+20));
 
 /* Back to Top */
 const backTop = document.querySelector('.back-top');
