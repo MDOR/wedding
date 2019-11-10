@@ -1,3 +1,4 @@
+@import './fonts/index';
 @import '../../normalize.css/normalize';
 @import './components/heart';
 @import './components/masonry';
@@ -22,9 +23,10 @@ $gradient-color-2: linear-gradient(45deg, $purple 20%, $pink-dark 80%);
 body {
 	font-family: 'Halant', serif;
 	font-size: 18px;
+	min-width: 350px;
 	> section {
 		padding: 15px 30px;
-		transition: 1s background ease;
+		transition: 1s background-position-x ease, .5s background-position-y ease;
 		&:nth-child(odd) {
 			background-image: url('../img/css/dots.png');
 			-webkit-background-image: url('../img/css/dots.png');
@@ -202,6 +204,7 @@ body {
 		text-align: justify;
 		line-height: 19px;
 		border: .5px solid $pink;
+		background: rgba(255,255,255,.7);
 		&:first-child {
 			border-top-left-radius: 15px;
 			border-bottom-left-radius: 15px;
@@ -224,6 +227,8 @@ body {
 		.sub-section-title { margin-bottom: 10px; }
 		.text {
 			order: 1;
+			border-left: 1px solid $pink !important;
+			border-right: 1px solid $pink !important;
 			border-bottom-width: 0;
 			border-top-left-radius: 15px;
 			border-bottom-left-radius: 0 !important;
