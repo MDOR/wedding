@@ -86,7 +86,7 @@ function styles() {
 
 function html() {
   return gulp.src(paths.html.src)
-    .pipe(htmlmin({ 
+    .pipe(htmlmin({
     	collapseWhitespace: true,
     	removeComments: true
     }))
