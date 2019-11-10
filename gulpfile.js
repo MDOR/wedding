@@ -33,7 +33,7 @@ const paths = {
     dest: 'docs/'
   },
   img: {
-    src: ['src/img/*.{png,svg,ico,webp}', 'src/img/**/*.{png,svg,ico,webp}'],
+    src: ['src/img/*.{png,svg,ico,webp,gif}', 'src/img/**/*.{png,svg,ico,webp,gif}'],
     dest: 'docs/img'
   },
   imgJPG: {

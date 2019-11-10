@@ -1,4 +1,6 @@
 .gallery {
+	max-width: 999px;
+	margin: 0 auto;
 	user-select: none;
   &-item {
   	float: left;
@@ -7,6 +9,7 @@
    		-webkit-filter: grayscale(1);
   	}
   }
+
 	&-item-33 {
 	  width: 33.333%;
 	}
@@ -35,5 +38,10 @@
 	  &-item-l-100 {
 		  width: 100%;
 	  }
+  }
+  @media(max-width: 779.99px) {
+  	&-item-hidden {
+  		display: none !important;
+  	}
   }
 }
