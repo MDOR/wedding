@@ -144,5 +144,5 @@ const watch = () => {
 	gulp.watch(paths.html.src, gulp.series(html, reload))
 };
 
-gulp.task('default', gulp.series(clean, scripts,styles, html, img, imgCopy))
+gulp.task('default', gulp.series(clean, scripts,styles, html, img))
 gulp.task('watch', gulp.series(clean, scripts,styles, html, imgCopy, serve, watch))
