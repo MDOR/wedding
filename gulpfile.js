@@ -13,6 +13,7 @@ const copy = require('gulp-copy')
 const purge = require('gulp-css-purge')
 const cleanCSS = require('gulp-clean-css')
 const imagemin = require('gulp-imagemin')
+const htmlmin = require('gulp-htmlmin')
 const imageminGuetzli = require('imagemin-guetzli');
 const browserSync = require('browser-sync')
 
@@ -85,6 +86,10 @@ function styles() {
 
 function html() {
   return gulp.src(paths.html.src)
+    .pipe(htmlmin({ 
+    	collapseWhitespace: true,
+    	removeComments: true
+    }))
     .pipe(gulp.dest(paths.html.dest))
 }
 
@@ -108,8 +113,12 @@ function img(done) {
 }
 
 function imgCopy(done) {
-  return gulp.src(paths.img.src)
+  gulp.src(paths.img.src)
     .pipe(gulp.dest(paths.img.dest))
+
+  gulp.src(paths.imgJPG.src)
+    .pipe(gulp.dest(paths.imgJPG.dest))
+
   done()
 }
 
@@ -131,9 +140,9 @@ const watch = () => {
 	gulp.series(clean, scripts, styles, imgCopy, html);
 	gulp.watch(paths.scripts.src, gulp.series(scripts, reload))
 	gulp.watch(paths.styles.src, gulp.series(styles, reload))
-	gulp.watch(paths.img.src, gulp.series(imgCopy, reload))
+	gulp.watch(paths.img.src.concat(paths.imgJPG.src), gulp.series(imgCopy, reload))
 	gulp.watch(paths.html.src, gulp.series(html, reload))
 };
 
-gulp.task('default', gulp.series(clean, scripts,styles, html, img))
+gulp.task('default', gulp.series(clean, scripts,styles, html, img, imgCopy))
 gulp.task('watch', gulp.series(clean, scripts,styles, html, imgCopy, serve, watch))
