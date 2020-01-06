@@ -1,6 +1,7 @@
 $pink: #eaa0a2;
 @keyframes heart-animation {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1.2) rotate(-45deg);
   }
 
@@ -12,7 +13,7 @@ $pink: #eaa0a2;
 .heart {
   display: inline-block;
   height: 45px;
-  width: 45px;;
+  width: 45px;
   position: absolute;
   left: 0;
   right: 0;
@@ -28,7 +29,7 @@ $pink: #eaa0a2;
     border-radius: 50%;
     display: inline-block;
     height: 45px;
-    width:45px;
+    width: 45px;
     position: absolute;
     top: 0;
     background-color: $pink;

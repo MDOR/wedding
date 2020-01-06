@@ -1,32 +1,34 @@
 .img-grid {
-	&:after {
-	  content: '';
-	  display: block;
-	  clear: both;
-	}
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 
-	img {
-		max-width: 100%;
-		display: block;
-	}
-	[class^="grid-item"] {
-    	float: left;
-	}
+  img {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+  [class^='grid-item'] {
+    float: left;
+    overflow: hidden;
+  }
 
-	.grid-sizer,
-	.grid-item {
-	    width: 33.3333%;
-	}
-	.grid-item-100 {
-		width: 100%;
-	}
-	.grid-item-75 {
-		width: 75%;
-	}
-	.grid-item-50 {
-		width: 50%;
-	}
-	.grid-item-25 {
-		width: 25%;
-	}
+  .grid-sizer,
+  .grid-item {
+    width: 33.3333%;
+  }
+  .grid-item-100 {
+    width: 100%;
+  }
+  .grid-item-75 {
+    width: 75%;
+  }
+  .grid-item-50 {
+    width: 50%;
+  }
+  .grid-item-25 {
+    width: 25%;
+  }
 }

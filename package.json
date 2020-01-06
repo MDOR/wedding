@@ -16,7 +16,8 @@
   "homepage": "https://github.com/MDOR/wedding#readme",
   "scripts": {
     "gulp": "gulp",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "prettify": "prettier --list-different --write \"./*.{js,jsx,sass,scss,css,html}\" \"./**/*.{js,jsx,sass,scss,css,html}\""
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -36,7 +37,10 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
+    "husky": "^3.1.0",
     "imagemin-guetzli": "^2.0.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
