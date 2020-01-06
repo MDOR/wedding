@@ -7,59 +7,58 @@ $pink: #eaa0a2;
 }
 
 .card {
-	width: 300px;
-	overflow: hidden;
-	margin-bottom: 40px;
-	align-items: center;
-	&-img {
-		height: 350px;
-		width: 100%;
-		background-size: cover;
-		border-top-left-radius: 20px;
-		border-top-right-radius: 20px;
-	}
-	&-body {
-		border-bottom-left-radius: 20px;
-		border-bottom-right-radius: 20px;
-		border: 1px solid $pink;
-		padding: 15px;
-		height: 360px;
-		text-align: justify;
-		background: rgba(255,255,255,.7);
-	}
-	&[data-info="templo"] {
-		.card-img {
-			background-image: url('../img/additional/san_antonio.jpg');
-			-webkit-background-image: url('../img/additional/san_antonio.jpg');
-		}
-	}
-	&[data-info="autobuses"] {
-		.card-img {
-			background-image: url('../img/additional/bus.jpg');
-			-webkit-background-image: url('../img/additional/bus.jpg');
-			background-position-x: 99%;
-		}
-	}
-	&[data-info="avion"] {
-		.card-img {
-			background-image: url('../img/additional/avion.jpg');
-			-webkit-background-image: url('../img/additional/avion.jpg');
-			background-position-x: 10%;
-		}
-	}
-	&[data-info="what-to-do"] {
-		.card-img {
-			background-image: url('../img/additional/san_marcos.jpg');
-			-webkit-background-image: url('../img/additional/san_marcos.jpg');
-			background-position-x: 10%;
-		}
-	}
-	&[data-info="hoteles"] {
-		.card-img {
-			background-image: url('../img/additional/hoteles.jpg');
-			-webkit-background-image: url('../img/additional/hoteles.jpg');
-			background-position-x: 10%;
-		}
-	}
+  width: 300px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  align-items: center;
+  &-img {
+    height: 350px;
+    width: 100%;
+    background-size: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  &-body {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid $pink;
+    padding: 15px;
+    height: 360px;
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.7);
+  }
+  &[data-info='templo'] {
+    .card-img {
+      background-image: url('../img/additional/san_antonio.jpg');
+      -webkit-background-image: url('../img/additional/san_antonio.jpg');
+    }
+  }
+  &[data-info='autobuses'] {
+    .card-img {
+      background-image: url('../img/additional/bus.jpg');
+      -webkit-background-image: url('../img/additional/bus.jpg');
+      background-position-x: 99%;
+    }
+  }
+  &[data-info='avion'] {
+    .card-img {
+      background-image: url('../img/additional/avion.jpg');
+      -webkit-background-image: url('../img/additional/avion.jpg');
+      background-position-x: 10%;
+    }
+  }
+  &[data-info='what-to-do'] {
+    .card-img {
+      background-image: url('../img/additional/san_marcos.jpg');
+      -webkit-background-image: url('../img/additional/san_marcos.jpg');
+      background-position-x: 10%;
+    }
+  }
+  &[data-info='hoteles'] {
+    .card-img {
+      background-image: url('../img/additional/hoteles.jpg');
+      -webkit-background-image: url('../img/additional/hoteles.jpg');
+      background-position-x: 10%;
+    }
+  }
 }
-
